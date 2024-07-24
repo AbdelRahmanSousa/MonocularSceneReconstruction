@@ -1,0 +1,24 @@
+{% extends "_base.html" %}
+{% block title %}
+NERF
+{% endblock %}
+{% block content %}
+<form action="/start_nerf_debug" method="POST" enctype="multipart/form-data">
+    <label for="preprocessing">Preprocessing Method</label>
+    <select id="preprocessing" name="preprocessing" multiple>
+        <option value="white balancing">White Balancing</option>
+        <option value="augmentation">Augmentation</option>
+        <option value="clahe">CLAHE</option>
+        <option value="filtering">Filtering</option>
+    </select>
+    <label for="estimator">Pose Estimation Method: </label>
+    <select id="estimator" name="estimator">
+        <option value="colmap">ColMap</option>
+        <option value="hloc">HLOC</option>
+        <option value="orbslam3">OrbSLAM3</option>
+    </select>
+    <label for="images">Images</label>
+    <input id="images" name="images" type="file" accept=".zip">
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}
